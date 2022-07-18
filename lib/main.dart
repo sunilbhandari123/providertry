@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provdertry/model.dart';
+import 'package:provdertry/provider/c_provider.dart';
+import 'package:provdertry/provider/examp.dart';
+import 'package:provdertry/screens/home.dart';
 import 'package:provider/provider.dart';
-import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider (
-           create :(_) => Model(),
+    return MultiProvider (
+      providers: [
+          ChangeNotifierProvider(create: (_) => Model()),
+          ChangeNotifierProvider(create: (_) => Examp()),
+      ],
     child: MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-       
-        primarySwatch: Colors.blue,
+      theme: ThemeData( 
+      primarySwatch: Colors.blue,
       ),
-      home: const Homepage()));
+      home: const HomeP()));
 
   }
 }

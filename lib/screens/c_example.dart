@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provdertry/provider/c_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
+import '../provider/c_provider.dart';
+
 
 
 class Homepage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _HomepageState extends State<Homepage> {
               builder: (context, nModel, child) {
                 return Text(
                   model.title,
-                  style: const TextStyle(color: Colors.white),
+                  style:const  TextStyle(color: Colors.white),
                 );
               },
             ),
@@ -64,3 +65,5 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
+
+
