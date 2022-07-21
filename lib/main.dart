@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provdertry/provider/c_provider.dart';
+import 'package:provdertry/provider/dark_provider.dart';
 import 'package:provdertry/provider/examp.dart';
+import 'package:provdertry/screens/dark_example.dart';
 import 'package:provdertry/screens/home.dart';
 import 'package:provider/provider.dart';
 
@@ -13,19 +15,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider (
-      providers: [
+    return MultiProvider(
+        providers: [
           ChangeNotifierProvider(create: (_) => Model()),
           ChangeNotifierProvider(create: (_) => Examp()),
-      ],
-    child: MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData( 
-      primarySwatch: Colors.blue,
-      ),
-      home: const HomeP()));
-
+          ChangeNotifierProvider(create: (_) => TheamChanger()),
+        ],
+        child: Builder(builder: (BuildContext context) {
+          final themechanger = Provider.of<TheamChanger>(context);
+          return MaterialApp(
+              title: 'Flutter Demo',
+              themeMode: themechanger.thememode,
+              theme: ThemeData(
+                primarySwatch: Colors.brown,
+              ),
+              darkTheme: ThemeData(
+              brightness: Brightness.dark
+              ),
+              home: const BlackTheme());
+        }));
   }
 }
-
-
