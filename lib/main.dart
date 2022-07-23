@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provdertry/provider/api.dart';
 import 'package:provdertry/provider/c_provider.dart';
 import 'package:provdertry/provider/dark_provider.dart';
 import 'package:provdertry/provider/examp.dart';
+import 'package:provdertry/screens/Ap.dart';
 import 'package:provdertry/screens/dark_example.dart';
 import 'package:provdertry/screens/home.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
           ChangeNotifierProvider(create: (_) => Model()),
           ChangeNotifierProvider(create: (_) => Examp()),
           ChangeNotifierProvider(create: (_) => TheamChanger()),
+          ChangeNotifierProvider(create: (_) => Athiprovider()),
         ],
         child: Builder(builder: (BuildContext context) {
           final themechanger = Provider.of<TheamChanger>(context);
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
               darkTheme: ThemeData(
               brightness: Brightness.dark
               ),
-              home: const BlackTheme());
+              home: const Login());
         }));
   }
 }
